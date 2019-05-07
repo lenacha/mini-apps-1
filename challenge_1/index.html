@@ -1,2 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .grid-container {
+      display: inline-grid;
+      grid-template-columns: 100px 100px 100px;
+      grid-template-rows: 100px 100px 100px;
+      background-color: #111111;
+      padding: 10px;
+      margin-left: 39%;
+      margin-bottom: 5%;
+    }
 
+    .grid-item {
+      background-color: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(0, 0, 0, 0.8);
+      padding: 20px;
+      font-size: 30px;
+      text-align: center;
+      font-style: sans-serif;
+    }
+
+    .newGame {
+      color: 'pink';
+      height: 20px;
+      width: 100px;
+      margin: -20px -50px;
+      position: relative;
+      top: 80%;
+      left: 50%;
+
+    }
+
+    .title {
+      text-align: center;
+      font-style: sans-serif;
+    }
+
+    #players {
+      text-align: center;
+      font-style: sans-serif;
+    }
+
+    #turn {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class='title'>Tic Tac Toe</h1>
+  <button class='newGame' onclick="resetGame()">New Game</button>
+  <br><br>
+  <div class="grid-container">
+    <div class="grid-item" id='[0,0]' onclick="clicked(this)"></div>
+    <div class="grid-item" id='[0,1]' onclick="clicked(this)"></div>
+    <div class="grid-item" id='[0,2]' onclick="clicked(this)"></div>
+    <div class="grid-item" id='[1,0]' onclick="clicked(this)"></div>
+    <div class="grid-item" id='[1,1]' onclick="clicked(this)"></div>
+    <div class="grid-item" id='[1,2]' onclick="clicked(this)"></div>
+    <div class="grid-item" id='[2,0]' onclick="clicked(this)"></div>
+    <div class="grid-item" id='[2,1]' onclick="clicked(this)"></div>
+    <div class="grid-item" id='[2,2]' onclick="clicked(this)"></div>
+  </div>
+  <div id='turn'></div><br>
+  <div id='players'><div id='play1' class='play1'></div><div id='score1'></div><br><br>
+  <div id='play2' class='play2'></div><div id='score2'></div>
+</div>
+  <script type="text/javascript" src="app.js"></script>
+</body>
+
+</html>
