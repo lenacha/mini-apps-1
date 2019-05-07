@@ -1,2 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <script type="text/javascript" src="app.js"></script>
 
-
+  <form method="POST" action="/upload_text">
+    <textarea id='comment' name="comment" rows="4" cols="50">Enter text here...</textarea>
+    <input type="submit" value="Submit">
+  </form>
+  <form method="POST" action="/upload_file" enctype="multipart/form-data">
+    <label for="json">Choose a file:</label>
+    <input type="file" id="filePicker" name="filePicker" accept="application/json">
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>   
