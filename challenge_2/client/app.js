@@ -32,11 +32,14 @@ $("#ajaxUploadFile").on('submit', function (evt) {
     success: function (data) {
       console.log('file uploaded')
       var blob = new Blob([data]);
-      var link = document.createElement('a');
-
-      link.innerText = 'Download .csv file';
-      $('body').append(link);
-      
+      if(!document.getElementById('downloadLink')) {
+        var link = document.createElement('a');
+        link.id = 'downloadLink'
+        link.innerText = 'Download .csv file';
+        $('body').append(link);
+      } else {
+        var link = document.getElementById('downloadLink')
+      }
       link.href = window.URL.createObjectURL(blob);
       link.download = "converted.csv";
       // link.click();
