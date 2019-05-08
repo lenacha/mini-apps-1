@@ -8,16 +8,27 @@
   <title>Document</title>
 </head>
 <body>
-  <script type="text/javascript" src="app.js"></script>
+  <!-- without ajax -->
 
-  <form method="POST" action="/upload_text">
+  <!-- <form method="POST" action="/upload_text">
     <textarea id='comment' name="comment" rows="4" cols="50">Enter text here...</textarea>
     <input type="submit" value="Submit">
-  </form>
-  <form method="POST" action="/upload_file" enctype="multipart/form-data">
+  </form> -->
+  <!-- <form method="POST" action="/upload_file" enctype="multipart/form-data">
     <label for="json">Choose a file:</label>
     <input type="file" id="filePicker" name="filePicker" accept="application/json">
     <input type="submit" value="Submit">
+  </form> -->
+  
+  <form id="ajaxUploadText">
+    <textarea id='ajaxText' name="ajaxText" rows="4" cols="50">Enter text here...</textarea>
+    <input type="submit" value="Submit">
   </form>
+  <form id="ajaxUploadFile">
+    <label for="json">Choose a file:</label>
+    <input type="file" id="ajaxFile" name="ajaxFile" accept="application/json">
+    <input type="submit" value="Submit">
+  </form>
+  <script type="text/javascript" src="app.js"></script>
 </body>
 </html>   

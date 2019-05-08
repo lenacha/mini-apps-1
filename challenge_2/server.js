@@ -5,20 +5,41 @@ var bodyParser = require('body-parser')
 var multer = require('multer')
 var upload = multer();
 
-app.use(express.static('client'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static('client'));
 
-app.post('/upload_text', (req, res) => {
-  var data = req.body.filePicker;
-  var data1 = JSON.parse(data);
+// without ajax
+
+// app.use(bodyParser.urlencoded({ extended: false }));
+
+// app.post('/upload_text', (req, res) => {
+//   var data = req.body.filePicker;
+//   var data1 = JSON.parse(data);
+//   var csv = parsing(data1) +'\n'+ parsingNested(data1);
+//   res.setHeader('Content-disposition', 'attachment; filename=testing.csv');
+//   res.set('Content-Type', 'text/csv');
+//   res.status(200).send(csv);
+// });
+
+// app.post('/upload_file', upload.single('filePicker'), function (req, res, next) {
+//   var data = req.file.buffer;
+//   data = String(data);
+//   var parsedData = JSON.parse(data);
+//   var csv = parsing(parsedData) +'\n'+ parsingNested(parsedData);
+//   res.setHeader('Content-disposition', 'attachment; filename=testing.csv');
+//   res.set('Content-Type', 'text/csv');
+//   res.status(200).send(csv);
+// })
+
+app.post('/upload_text_ajax', (req, res) => {
+  var data1 = req.body;
   var csv = parsing(data1) +'\n'+ parsingNested(data1);
   res.setHeader('Content-disposition', 'attachment; filename=testing.csv');
   res.set('Content-Type', 'text/csv');
   res.status(200).send(csv);
 }); 
 
-app.post('/upload_file', upload.single('filePicker'), function (req, res, next) {
+app.post('/upload_file_ajax', upload.single('ajaxFile'), function (req, res, next) {
   var data = req.file.buffer;
   data = String(data);
   var parsedData = JSON.parse(data);
