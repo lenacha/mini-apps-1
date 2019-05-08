@@ -33,9 +33,13 @@ $("#ajaxUploadFile").on('submit', function (evt) {
       console.log('file uploaded')
       var blob = new Blob([data]);
       var link = document.createElement('a');
+
+      link.innerText = 'Download .csv file';
+      $('body').append(link);
+      
       link.href = window.URL.createObjectURL(blob);
       link.download = "converted.csv";
-      link.click();
+      // link.click();
     }
   });
   return false;
